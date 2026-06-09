@@ -1,0 +1,49 @@
+#ResponseFromArray{
+    background-color: black;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+#TableFromArray{
+    background-color: blanchedalmond;
+    color: red;
+    margin: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.TableRow2Class{
+    background-color: aliceblue;
+    border: 1px black solid;
+    border-radius: 200px;
+}
+
+#TableID{
+    width: 100%;
+}
+
+#TableID table{
+    background-color: blueviolet;
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-items: justified;
+}
+
+#number{
+    width: 200px;
+}
+
+button #AddNew {
+    display: flex;
+    justify-content: center;
+}
+
+button{
+}
+
+#updateform{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+}
