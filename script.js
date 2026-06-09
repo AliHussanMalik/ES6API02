@@ -100,25 +100,31 @@ async function addNewObj(e) {
         console.log(myObj)
 
         async function PostObj() {
-            console.log(URL)
-            const objoutput = await fetch(URL, {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                }
-                , body: myObj
-            });
-            const objoutputjson = objoutput.json();
-            console.log("Working")
+            try {
+                console.log(URL)
+                const objoutput = await fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                    , body: JSON.stringify(myObj)
+                });
+                const objoutputjson = await objoutput.json();
+                console.log("Working");
+                console.log(objoutput);
+                console.log(objoutputjson);
 
+            }
+            catch (e) {
+                console.log(e)
+            }
         }
         PostObj()
     }
     catch (e) {
         console.log(e)
     }
-
 }
 // addNewObj()
-console.log(Window)
+console.log(window)
 
