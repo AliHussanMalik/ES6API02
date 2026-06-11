@@ -72,7 +72,7 @@ async function addNewObj(e) {
             if (uid2) {
                 try {
                     console.log(URL)
-                    FinalURL = `${URL}/${uuid2}`
+                    FinalURL = `${URL}/${uid2}`
                     const objoutput = await fetch(FinalURL, {
                         method: 'PUT',
                         headers: {

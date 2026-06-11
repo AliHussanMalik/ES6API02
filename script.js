@@ -72,7 +72,7 @@ async function fetchdata(e) {
         const output = await fetch(URL);
         var response = await output.json();
 
-        alert(`ID :${response.id}\n Name : ${response.name} \n Created At : ${response.createdAt} \n Avatar :${response.avatar}`)
+        alert(`ID :${response.id}\n Name : ${response.name} \n Created At : ${response.createdAt} \n Avatar :<img src="${response.avatar}"></a>`)
 
         localStorage.setItem("Mock API", JSON.stringify(response))
     } catch (err) {
