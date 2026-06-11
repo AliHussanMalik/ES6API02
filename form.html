@@ -9,15 +9,17 @@
 </head>
 
 <body>
-    <button><a href="index.html">Back</a></button>
-    <form action="index.html" id="updateform" method="" onsubmit="addNewObj(event)">
-        <label for="Name" >Name :</label>
+    
+    <a href="index.html" class="button-link">Back</a>
+    <form action="index.html" id="updateform" onsubmit="addNewObj(event)">
+        <label for="namelabel" >Name :</label>
         <input type="text" id="namelabel" value="">
-        <label for="Avatar" >Avatar:</label>
+        <label for="avatarlabel" >Avatar:</label>
         <input type="text" id="avatarlabel" value="">
         <br><br>
-        <button type="submit">Submit</button>
+        <button type="submit" id="formbutton">Submit</button>
     </form>
+    <script src="script.js"></script>
+    <script src="form.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

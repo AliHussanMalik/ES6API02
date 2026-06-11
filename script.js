@@ -1,8 +1,8 @@
+const URL = `https://6a26e261a84f9d39e908063d.mockapi.io/es6api/v1/Users`;
+const formlink = "form.html";
 async function fetchalldata() {
     // e.preventDefault();
     try {
-        const URL = `https://6a26e261a84f9d39e908063d.mockapi.io/es6api/v1/Users`;
-
         const output = await fetch(URL);
         var response = await output.json();
 
@@ -31,9 +31,20 @@ async function fetchalldata() {
             const TableData4 = document.createElement("TD");
             TableData4.append(Element.createdAt)
             const EditButton = document.createElement("button")
+            // console.log(index)
+            // console.log(typeof index)
             EditButton.innerHTML = "Edit"
+            EditButton.id = "EditButton";
+            EditButton.addEventListener("click",()=>{
+                window.location.href = `${formlink}?userid=${Element.id}`
+
+            })
+            
             const DeleteButton = document.createElement("button")
             DeleteButton.innerHTML = "Delete"
+            DeleteButton.id = "DeleteButton";
+            DeleteButton.addEventListener("click",()=>{DeleteObj(Element.id)})
+
             TableRow2.append(TableData1, TableData2, TableData3, TableData4, EditButton, DeleteButton)
             NewTable.append(TableRow2)
 
@@ -46,8 +57,8 @@ async function fetchalldata() {
         console.error(err);
     }
 };
-
 fetchalldata();
+
 async function fetchdata(e) {
     e.preventDefault();
     try {
@@ -66,65 +77,22 @@ async function fetchdata(e) {
     }
 };
 
-async function addNewObj(e) {
-    e.preventDefault();
-    try {
+async function DeleteObj(userid){
+    try{
+        const DeleteURL = `${URL}/${userid}`
+        const DeleteObject = await fetch(DeleteURL,{
+            method: 'DELETE',
+        });
 
-        const URL = `https://6a26e261a84f9d39e908063d.mockapi.io/es6api/v1/Users/`;
-
-        const output = await fetch(URL);
-        var response = await output.json();
-        // console.log(`Output ${output}`)
-        // console.log(`Response${response}`)
-        // console.log(`Response${response.length}`)
-        const IDis = response.length + 1;
-        // console.log(`ID for current object${IDis}`)
-
-        const Datex = new Date();
-        const isoString = Datex.toISOString()
-        // console.log("Working");
-        // console.log(isoString);
-        // alert(isoString);
-        const Namee = document.getElementById("namelabel").value;
-        // console.log(`Name: ${Namee}`);
-        // alert(`Name: ${Namee}`);
-        const Avatarr = document.getElementById("avatarlabel").value;
-        // console.log(`Avataar: ${Avatarr}`)
-        // alert(`Avataar: ${Avatarr}`)
-        const myObj = {
-            "createdAt": isoString,
-            "name": Namee,
-            "avatar": Avatarr,
-            "id": IDis
+        if (DeleteObject.ok){
+            console.log("it is okay")
         }
-        console.log(myObj)
-
-        async function PostObj() {
-            try {
-                console.log(URL)
-                const objoutput = await fetch(URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    }
-                    , body: JSON.stringify(myObj)
-                });
-                const objoutputjson = await objoutput.json();
-                console.log("Working");
-                console.log(objoutput);
-                console.log(objoutputjson);
-
-            }
-            catch (e) {
-                console.log(e)
-            }
+        else{
+            console.log("There is some garbaration")
         }
-        PostObj()
     }
-    catch (e) {
+    catch(e){
         console.log(e)
     }
 }
-// addNewObj()
 console.log(window)
-
