@@ -47,3 +47,10 @@ button{
     display: flex;
     flex-direction: column;
 }
+
+#TableData3 img{
+    background-color: brown;
+    height: 80px;
+    width: 80px;
+    align-items: center;
+}

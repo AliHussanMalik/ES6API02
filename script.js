@@ -27,7 +27,10 @@ async function fetchalldata() {
             const TableData2 = document.createElement("TD");
             TableData2.append(Element.name);
             const TableData3 = document.createElement("TD");
-            TableData3.append(Element.avatar);
+            TableData3.id = "TableData3";
+            const imagedata = document.createElement("IMG")
+            imagedata.src =Element.avatar;
+            TableData3.append(imagedata);
             const TableData4 = document.createElement("TD");
             TableData4.append(Element.createdAt)
             const EditButton = document.createElement("button")
