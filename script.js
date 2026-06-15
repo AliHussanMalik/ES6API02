@@ -16,8 +16,12 @@ async function fetchalldata() {
         TableHead3.innerText = "Avatar";
         const TableHead4 = document.createElement("TH");
         TableHead4.innerText = "Created At";
+        const TableHead5 = document.createElement("TH");
+        TableHead5.innerText = "Edit";
+        const TableHead6 = document.createElement("TH");
+        TableHead6.innerText = "Delete";
         const Tablethere = document.getElementById("TableID")
-        TableRow1.append(TableHead1, TableHead2, TableHead3, TableHead4)
+        TableRow1.append(TableHead1, TableHead2, TableHead3, TableHead4, TableHead5, TableHead6)
         NewTable.append(TableRow1)
         response.forEach((Element, index) => {
             const TableRow2 = document.createElement("TR");
@@ -29,26 +33,30 @@ async function fetchalldata() {
             const TableData3 = document.createElement("TD");
             TableData3.id = "TableData3";
             const imagedata = document.createElement("IMG")
-            imagedata.src =Element.avatar;
+            imagedata.src = Element.avatar;
             TableData3.append(imagedata);
             const TableData4 = document.createElement("TD");
             TableData4.append(Element.createdAt)
+            const TableData5 = document.createElement("TD");
             const EditButton = document.createElement("button")
             // console.log(index)
             // console.log(typeof index)
             EditButton.innerHTML = "Edit"
             EditButton.id = "EditButton";
-            EditButton.addEventListener("click",()=>{
+            EditButton.addEventListener("click", () => {
                 window.location.href = `${formlink}?userid=${Element.id}`
 
             })
-            
+            TableData5.append(EditButton)
+
+            const TableData6 = document.createElement("TD");
             const DeleteButton = document.createElement("button")
             DeleteButton.innerHTML = "Delete"
             DeleteButton.id = "DeleteButton";
-            DeleteButton.addEventListener("click",()=>{DeleteObj(Element.id)})
+            TableData6.append(DeleteButton)
+            DeleteButton.addEventListener("click", () => { DeleteObj(Element.id) })
 
-            TableRow2.append(TableData1, TableData2, TableData3, TableData4, EditButton, DeleteButton)
+            TableRow2.append(TableData1, TableData2, TableData3, TableData4, TableData5, TableData6)
             NewTable.append(TableRow2)
 
         }
@@ -65,7 +73,8 @@ fetchalldata();
 async function fetchdata(e) {
     e.preventDefault();
     try {
-        const number = document.getElementById("number")
+        const number = document.getElementById("numberID")
+        console.log(` Here is the number ${number}`)
         const convertedID = Number(number.value);
         const URL = `https://6a26e261a84f9d39e908063d.mockapi.io/es6api/v1/Users/${convertedID}`;
 
@@ -80,22 +89,27 @@ async function fetchdata(e) {
     }
 };
 
-async function DeleteObj(userid){
-    try{
+async function DeleteObj(userid) {
+    try {
         const DeleteURL = `${URL}/${userid}`
-        const DeleteObject = await fetch(DeleteURL,{
+        const DeleteObject = await fetch(DeleteURL, {
             method: 'DELETE',
         });
 
-        if (DeleteObject.ok){
+        if (DeleteObject.ok) {
             console.log("it is okay")
         }
-        else{
+        else {
             console.log("There is some garbaration")
         }
     }
-    catch(e){
+    catch (e) {
         console.log(e)
     }
 }
-console.log(window)
+console.log(`Window ${window}`)
+console.log(`Document ${document}`)
+
+console.log(`Title ${document.title}`)
+console.log(`Cookies ${document.cookie}`)
+console.log(`Document URL ${document.URL}`)
