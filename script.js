@@ -74,7 +74,7 @@ async function fetchdata(e) {
     e.preventDefault();
     try {
         const number = document.getElementById("numberID")
-        console.log(` Here is the number ${number}`)
+        // console.log(` Here is the number ${number}`)
         const convertedID = Number(number.value);
         const URL = `https://6a26e261a84f9d39e908063d.mockapi.io/es6api/v1/Users/${convertedID}`;
 
@@ -97,19 +97,20 @@ async function DeleteObj(userid) {
         });
 
         if (DeleteObject.ok) {
-            console.log("it is okay")
+            console.log("Object is Deleted Successfully")
+            alert("Object is Deleted Successfully")
         }
         else {
-            console.log("There is some garbaration")
+            // console.log("There is some garbaration")
         }
     }
     catch (e) {
         console.log(e)
     }
 }
-console.log(`Window ${window}`)
-console.log(`Document ${document}`)
+// console.log(`Window ${window}`)
+// console.log(`Document ${document}`)
 
-console.log(`Title ${document.title}`)
-console.log(`Cookies ${document.cookie}`)
-console.log(`Document URL ${document.URL}`)
+// console.log(`Title ${document.title}`)
+// console.log(`Cookies ${document.cookie}`)
+// console.log(`Document URL ${document.URL}`)
