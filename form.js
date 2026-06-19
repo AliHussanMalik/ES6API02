@@ -20,10 +20,10 @@ async function PUTObject() {
         // console.log(`responseTwo ${responseTwo}`);
         localStorage.setItem("Response 2 ", responseTwo)
         const filterOutput = response.filter(checkNumber);
-        // console.log(`Here is the filter Output.${filterOutput}`)
         function checkNumber(element){
             return element == inputnumber
         }
+        console.log(`Here is the filter Output.${filterOutput}`)
         const retName = document.getElementById("namelabel")
         const retAvatar = document.getElementById("avatarlabel")
 

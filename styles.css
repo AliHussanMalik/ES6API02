@@ -19,15 +19,25 @@
     border-radius: 200px;
 }
 
+.TableRow2Class:hover{
+    background-color: rgb(238, 205, 238);
+    color: white;
+    font-size: large;
+}
+
 #TableID{
-    width: 100%;
+    width: 200%;
 }
 
 #TableID table{
     background-color: blueviolet;
     /* display: flex; */
     /* flex-direction: column; */
-    align-items: justified;
+    /* align-items: center; */
+}
+
+#NewTableJS{
+    width: 100vw;
 }
 
 #number{
@@ -37,9 +47,6 @@
 button #AddNew {
     display: flex;
     justify-content: center;
-}
-
-button{
 }
 
 #updateform{
@@ -53,4 +60,16 @@ button{
     height: 80px;
     width: 80px;
     align-items: center;
+    border-radius: 40px;
+}
+
+#TableData3:hover img{
+    border-radius: 0px;
+    height: 200px;
+    width: 200px;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
 }

@@ -7,6 +7,7 @@ async function fetchalldata() {
         var response = await output.json();
 
         const NewTable = document.createElement("TABLE");
+        NewTable.id ="NewTableJS"
         const TableRow1 = document.createElement("TR");
         const TableHead1 = document.createElement("TH");
         TableHead1.innerText = "ID";
